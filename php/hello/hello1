@@ -1,0 +1,13 @@
+echo ("hello world");
+2 echo ('hello world');
+3 print ("hello world");
+4 print ('hello world');
+5 echo "hello world";
+6 echo 'hello world';
+7 print "hello world";
+8 print 'hello world';
+9 $a = "hello ";
+$b = "world";
+echo $a.$b;
+10 $a = array("hello", "world");
+echo "$a[0] $a[1]";

@@ -1,0 +1,2 @@
+10 $a = array("hello", "world");
+echo "$a[0] $a[1]";
