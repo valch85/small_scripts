@@ -1,0 +1,1 @@
+5.downto(-2) { |i| print i, " "}
