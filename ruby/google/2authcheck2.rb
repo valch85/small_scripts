@@ -46,7 +46,7 @@ reports_api = client.discovered_api('admin', 'reports_v1')
 # send emails method
 def email_send(email)
   puts "Sending email"
-  realname = email.sub(/@.*?$/, '').to_s.gsub(/(\S+)\.(\S+)/){ $1.to_s.capitalize + " " + $2.to_s.capitalize } #remove @domante from email address & create user name for email with capitalize letter with space
+  realname = email.sub(/@.*?$/, '').sub(/@.*?$/, '').split(".").map(&:capitalize).join(" ") #remove @domante from email address & create user name for email with capitalize letter with space
   #sent emails
   Mail.defaults {
     delivery_method  :smtp, :address    => "smtp.gmail.com",
