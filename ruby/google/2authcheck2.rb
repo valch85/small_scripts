@@ -70,6 +70,28 @@ Please see  the link to activation: https://accounts.google.com/SmsAuthConfig.\n
   puts "Email sent"
 end
 
+def report_send(list)
+  #sent emails
+  Mail.defaults {
+    delivery_method  :smtp, :address    => "smtp.gmail.com",
+                     :port       => 587,
+                     :user_name  => 'email@company.com',
+                     :password   => 'pass',
+                     :enable_ssl => true
+
+  }
+  mail = Mail.new {
+    to      "email1@company.com, email2@company.com, email3@company.com"
+    from    'email@company.com'
+    subject "2 factor auth report. #{list.count} users without two-factor authentication."
+    text_part {
+      body list.join("\n")
+    }
+  }
+  mail.deliver
+  puts "Report sent"
+end
+
 # make call to api
 results = client.execute!(
   :api_method => reports_api.user_usage_report.get,
@@ -92,6 +114,9 @@ send_list.each do |email|
   if black_list.include?(email)
     next
   end
+  list << email.to_s
   puts email
   email_send(email)
 end
+
+report_send(list)
