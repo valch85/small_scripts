@@ -24,7 +24,7 @@ key = Google::APIClient::KeyUtils.load_from_pkcs12('key.p12', 'notasecret') # ma
 # balack list emails arrays
 black_list = [ "blacklist1@company.com", "blacklist2@company.com"]
 send_list = [] # empty array for emails from api call results
-
+list = []
 
 # get the environment configured authorization
 client = Google::APIClient.new({
