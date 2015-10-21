@@ -11,86 +11,76 @@ if age >=18 && status == "Y"
 
 
   1000.times do
+
+    puts
+
     puts "Enter for start game "
     gets
 
-    if money >= 0
-      x = rand (0..5)
-      y = rand (0..5)
-      z = rand (0..5)
+    x = rand (0..5)
+    y = rand (0..5)
+    z = rand (0..5)
 
-      puts "#{x} #{y} #{z}"
 
-      # 000
-      if x == 0 && y == 0 && z == 0
+    10.times do |xx|
 
-        puts "Your balance nulled"
-        money = 0
+      meter = rand (000..999)
+      if xx < 9
+        print meter
+        print "\r"
+        sleep 0.08
+      else print "#{x} #{y} #{z}"
       end
-
-      # 111
-      if x == 1 && y == 1 && z == 1
-        puts "You get $10"
-        money = money + 10
-      end
-
-      # 222
-      if x == 2 && y == 2 && z == 2
-        puts "You get $20"
-        money = money + 20
-      end
-
-      # 333
-      if x == 3 && y == 3 && z == 3
-        puts "You get $30"
-        money = money + 30
-      end
-
-      # 444
-      if x == 4 && y == 4 && z == 4
-        puts "You get $40"
-        money = money + 40
-      end
-
-      # 555
-      if x == 5 && y == 5 && z == 5
-        puts "Your balance nulled"
-        money = money + 50
-      end
-
-      # 777
-      if x == 7 && y == 7 && z == 7
-        puts "Your balance nulled"
-        money = money - 70
-      end
-
-      # 888
-      if x == 8 && y == 8 && z == 8
-        puts "Your balance nulled"
-        money = money - 80
-      end
-
-      # 999
-      if x == 9 && y == 9 && z == 9
-        puts "Your balance nulled"
-        money = money - 90
-      end
-
-      # 123
-      if x == 1 && y == 2 && z == 3
-        puts "Your balance nulled"
-        money = money - 123
-      end
-
-      puts "You have $#{money}"
-
-    else
-      puts "you lost"
-      exit
     end
 
-  end
 
-else
-  puts "chao"
+    puts
+
+    # в случае совпадения чисел, начисляются очки
+    if x == y && x == z && x > 0 && x != 5
+      puts "\nПолное совпадение! Вам зачислено #{x * 10}$."
+      money = money + x * 10
+
+    # в случае комбинации 555, очки умножаются в 5 раз
+    elsif x == y && x == z && x == 5 && money > 0
+      puts "\nДЖЕЕЕЕКПООООТ!!! Ваш счёт удваивается!"
+      money = money * 2
+
+    # в случае комбинации 000, очки обнуляются
+    elsif x == 0 && y == 0 && z == 0 && money >= 0
+      puts "\nПоздравляем! Счёт обнуляется."
+      money = 0
+
+    # в случае совпадения двух парных чисел + 5 очков
+    elsif x == y || y == z
+
+      puts "\nПарное совпадение! Вам зачислен 1$."
+
+      money = money + 1
+
+    # в случае отсутствие совпадения снимается 5 очков
+    # выводится один случайный комментарий
+    else money = money - 5
+    comment = rand (1..3)
+
+      if comment == 1
+        puts "\nWill luck next, - 5$."
+
+      elsif comment == 2
+        puts "\nDon't worry 5$ not so much."
+
+      else
+        puts "\nMinus 5$. They will go for charity!"
+      end
+    end
+
+    puts "You have #{money}$"
+
+    # При нулевом счёте игра заканчивается
+    if money <= 0
+      puts "\nThe end."
+      sleep 4
+      exit
+    end
+  end
 end

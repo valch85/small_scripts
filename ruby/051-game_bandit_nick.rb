@@ -6,52 +6,25 @@ puts "\nЯ вижу у тебя есть #{money}$ и тебе не терпит
 
   puts
 
-  puts "Нажмите Enter чтобы дернуть ручку"
+  puts "Enter for start game "
   gets
 
   x = rand (0..5)
   y = rand (0..5)
   z = rand (0..5)
 
-  # счётчик значения "x"
+
   10.times do |xx|
 
-    meter = rand (0..5)
+    meter = rand (000..999)
     if xx < 9
       print meter
       print "\r"
       sleep 0.08
-    else print x
+    else print "#{x} #{y} #{z}"
     end
   end
 
-  puts
-
-  # счётчик значения "y"
-  10.times do |yy|
-
-    meter = rand (0..5)
-    if yy < 9
-      print meter
-      print "\r"
-      sleep 0.08
-    else print y
-    end
-  end
-
-  puts
-
-  # счётчик значения "z"
-  10.times do |zz|
-
-    meter = rand (0..5)
-    if zz < 9
-      print meter
-      print "\r"
-      sleep 0.08
-    else print z
-    end
-  end
 
   puts
 
@@ -82,21 +55,21 @@ puts "\nЯ вижу у тебя есть #{money}$ и тебе не терпит
   else money = money - 5
   comment = rand (1..3)
   if comment == 1
-    puts "\nПовезёт в другой раз, списываю 5$."
+    puts "\nWill luck next, - 5$."
 
   elsif comment == 2
-    puts "\nНе расстраивайся! 5$ не так уж много."
+    puts "\nDon't worry 5$ not so much."
 
   else
-    puts "\nМинус 5$. Эти деньги пойдут на благотворительность!"
+    puts "\nMinus 5$. They will go for charity!"
   end
   end
 
-  puts "Теперь у Вас #{money}$"
+  puts "You have #{money}$"
 
   # При нулевом счёте игра заканчивается
   if money <= 0
-    puts "\nК счастью, у Вас закончились деньги, и Вы больше ничего не проиграете. \nПОТРАЧЕНО"
+    puts "\nThe end."
     sleep 4
     exit
   end
