@@ -1,6 +1,6 @@
 def num_args (*args)
 	length = args.size
-	label = length == 1 ? "argument" : "arguments"
+	label = length <= 1 ? "argument" : "arguments"
 	num = length.to_s + " " + label + "(" + args.inspect + ")"
 	num
 end

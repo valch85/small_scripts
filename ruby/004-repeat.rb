@@ -1,4 +1,4 @@
-def repeat ( word="Hello!", times=3 )
+def repeat ( word="Hello! ", times=3 )
 	puts word * times
 end
 
