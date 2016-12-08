@@ -11,5 +11,6 @@ echo "server name = $server_name"
 echo "dirrectory for search $dir_path"
 echo "file size = $size"
 
+#ssh $server_name "find $dir_path -type f -size +${size}c -exec ls -lh {} \; |awk '{print $5 " " $9}'| sort -n -r "
 ssh $server_name "find $dir_path -type f -size +${size}c"
 ssh $server_name "find $dir_path -type f -size +${size}c | wc -l"
