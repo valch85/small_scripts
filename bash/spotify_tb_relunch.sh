@@ -1,4 +1,4 @@
-#relunch Spotify and Touch Bar icon processes in MacOS
+#relaunch Spotify and Touch Bar icon processes in MacOS
 #!/bin/bash
 
 #kill spotify process
