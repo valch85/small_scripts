@@ -53,9 +53,12 @@ s3_object = boto3.client(
 
 def compress():
     print("started compression")
-    tar = tarfile.open(temp_arch + ".tar.gz", "w:gz")
-    tar.add(folder_to_backup, arcname=temp_arch)
-    tar.close()
+    #tar = tarfile.open(temp_arch + ".tar.gz", "w:gz")
+    #tar.add(folder_to_backup, arcname=temp_arch)
+    #tar.close()
+
+    with open(temp_arch + ".tar.gz", 'w') as f_obj:
+        f_obj.write(folder_to_backup)
 
 
 # to decrypt use this example
