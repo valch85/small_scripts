@@ -8,12 +8,6 @@ from pathlib import Path
 from os import listdir
 from os.path import isdir, join
 
-def rename(dir_name):
-    #data_file = Path('dirname')
-    #get_loc(dir_name)
-    get_date(dir_name)
-    #data_file.rename('data.txt')
-
 def get_loc(dir_name):
     location = re.search('^.+?(?=,)', dir_name).group(0)
     return location
@@ -30,6 +24,12 @@ def get_date(dir_name):
     year = re.search('\d+$', dir_name).group(0)
     date = str(year)+'-'+str(month_digit)+'-'+str(day)
     return date
+
+def rename(dir_name):
+    data_file = Path(dir_name)
+    get_loc(dir_name)
+    get_date(dir_name)
+    data_file.rename(date+' '+location)
 
 # path to dirrectory
 folder_path = sys.argv[1]
