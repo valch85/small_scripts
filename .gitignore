@@ -4,12 +4,25 @@
 .chef/*.pem
 .chef/encrypted_data_bag_secret
 
+# Python
+.env
+.venv
+env/
+venv/
+ENV/
+.python-version
+.Python
+
+# Django stuff:
+*.log
+local_settings.py
+
 # Ruby
 .rake_test_cache
 .rvmrc
 .rbenv-version
 
-#RubyMine
+# IdeaApps
 .idea
 
 # Emacs
