@@ -72,6 +72,8 @@ for i in onlydir:
     else:
         print('Dirrectory ' + i + ' is not in a iPhoto format')
 
+onlydir = [f for f in listdir(folder_path) if isdir(join(folder_path, f))]
+print(onlydir)
 
 
 
