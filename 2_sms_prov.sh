@@ -2,7 +2,7 @@
 
 num=$(/bin/cat count) 
 
-echo число в файле $num
+echo 'number in a file $num'
 if [ $num -eq $((num/2*2)) ];then
 	        echo 1 > count
 		#php turbosms.php;      
