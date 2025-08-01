@@ -1,5 +1,6 @@
 # script delete from the end of the file all symbols that left only 10 + file extension
 # convetn PNG to JPG
+# for the lunchd agent file look for com.user.10_character_cut.plist 
 import os
 import random
 import string
