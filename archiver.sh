@@ -11,7 +11,7 @@ if [ -d $DirName ]; then
 	echo DirName = $DirName
 	cd $DirName 
 	tar -czf $DirName.tar.gz ./*
-	scp -i ~/.ssh/valskey-aws.pem $DirName.tar.gz root@aws.valch.name:/home/val
+	scp -i ~/.ssh/key-aws.pem $DirName.tar.gz root@aws.domain.name:/home/user
 	rm $DirName.tar.gz
 else
 	echo "Directory does not exists"
