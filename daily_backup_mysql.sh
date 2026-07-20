@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xue
+set -ue
 stamp=`date +%Y-%m-%d-%H:%M`
 FILENAME="/mnt/db_backup/full_sql"
 /usr/bin/find /mnt/db_backup/full* -mtime +14 -delete
